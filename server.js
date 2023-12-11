@@ -2,6 +2,8 @@ const express = require('express');
 const https = require('https');
 const app = express();
 
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3000;
 
 // Define a route for GET requests on the home page
@@ -12,7 +14,7 @@ app.get('/', (expressReq, expressRes) => {
         path: '/v4/competitions/PD/standings',
         method: 'GET',
         headers: {
-            'X-Auth-Token': '0853655d9d9a4cef937a4525fcc75fb8'
+            'X-Auth-Token': process.env.FOOTBALL_API_KEY
         }
     };
 
