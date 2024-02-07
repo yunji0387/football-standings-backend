@@ -53,3 +53,38 @@ exports.findStandingByCompetitionCode = async (req, res) => {
         });
     }
 };
+
+exports.updateStandingByCompetitionCode = async (req, res) => {
+    try {
+        // Extract the code from the request parameters
+        const { code } = req.params;
+
+        // Find the standing document by competition code and update it with the request body data
+        // { new: true } option returns the document after update was applied
+        const updatedStanding = await Standing.findOneAndUpdate(
+            { 'competition.code': code },
+            req.body,
+            { new: true, runValidators: true }
+        );
+
+        // If no document is found and updated, return a 404 Not Found response
+        if (!updatedStanding) {
+            return res.status(404).json({
+                success: false,
+                message: 'Standing not found for the provided competition code'
+            });
+        }
+
+        // Return the updated document with a 200 OK response
+        res.status(200).json({
+            success: true,
+            data: updatedStanding
+        });
+    } catch (error) {
+        // If an error occurs, return a 500 Internal Server Error response
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
