@@ -58,6 +58,6 @@ const StandingsSchema = new mongoose.Schema({
     standings: [StandingSchema]
 });
 
-const LeagueStandings = mongoose.model('LeagueStandings', StandingsSchema);
+const Standings = mongoose.model('Standings', StandingsSchema);
 
-module.exports = LeagueStandings;
+module.exports = Standings;
