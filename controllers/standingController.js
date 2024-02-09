@@ -132,3 +132,34 @@ exports.updateStandingByCompetitionCode = async (req, res) => {
         });
     }
 };
+
+// Delete a specific standing by competition code
+exports.deleteStandingByCompetitionCode = async (req, res) => {
+    try {
+        const { code } = req.params;
+
+        // Attempt to delete the standing document that matches the competition code
+        const deletedStanding = await Standing.findOneAndDelete({ 'competition.code': code });
+
+        // If no document is found and deleted, return a 404 Not Found response
+        if (!deletedStanding) {
+            return res.status(404).json({
+                success: false,
+                message: 'Standing not found for the provided competition code'
+            });
+        }
+
+        // Return a 200 OK response, indicating the delete was successful
+        res.status(200).json({
+            success: true,
+            message: 'Standing successfully deleted',
+            data: deletedStanding
+        });
+    } catch (error) {
+        // If an error occurs, return a 500 Internal Server Error response
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};

@@ -6,7 +6,8 @@ const router = express.Router();
 const {
   createStanding,
   findStandingByCompetitionCode,
-  updateStandingByCompetitionCode
+  updateStandingByCompetitionCode,
+  deleteStandingByCompetitionCode
 } = require('../controllers/standingController'); // Adjust the path as necessary
 
 // Route to create a new standing by competition code
@@ -17,6 +18,9 @@ router.get('/:code', findStandingByCompetitionCode);
 
 // Route to update a standing by competition code
 router.put('/:code', updateStandingByCompetitionCode);
+
+// Route to delete a standing by competition code
+router.delete('/:code', deleteStandingByCompetitionCode);
 
 // Export the router
 module.exports = router;
