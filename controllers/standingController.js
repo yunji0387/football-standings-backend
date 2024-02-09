@@ -19,6 +19,15 @@ exports.createStanding = async (req, res) => {
 
     // External API request using https module
     const apiReq = https.request(options, apiRes => {
+        if (apiRes.statusCode === 404) {
+            // If the status code is 404, end the request and respond with an error
+            apiReq.end();
+            return res.status(404).json({
+                success: false,
+                message: 'The requested competition code does not exist.'
+            });
+        }
+
         apiRes.on('data', chunk => {
             data += chunk;
         });
@@ -26,7 +35,7 @@ exports.createStanding = async (req, res) => {
         apiRes.on('end', async () => { // Making sure the function is async
             try {
                 const jsonData = JSON.parse(data);
-
+                console.log(jsonData);
                 // Check if the standing already exists in the database
                 const existingStanding = await Standing.findOne({ 'competition.code': code });
 
