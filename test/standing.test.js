@@ -16,7 +16,7 @@ before(async () => {
     expect = chai.expect;
 });
 
-describe.skip('Football League Standings Backend Server', () => {
+describe('Football League Standings Backend Server', () => {
     let createdStandingId;
 
     it('should delete any standing by competition code exited in the database', (done) => {
@@ -69,7 +69,7 @@ describe.skip('Football League Standings Backend Server', () => {
 
 });
 
-describe.skip('Conflict when creating a new standing with an existing code', () => {
+describe('Conflict when creating a new standing with an existing code', () => {
     const competitionCode = 'PL'; // Use a valid competition code for the first call
 
     it('should create a new standing successfully on the first attempt', async () => {
