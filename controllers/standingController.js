@@ -107,6 +107,7 @@ exports.findStandingByCompetitionCode = async (req, res) => {
     }
 };
 
+//update specific standing by code
 exports.updateStandingByCompetitionCode = async (req, res) => {
     try {
         // Extract the code from the request parameters
