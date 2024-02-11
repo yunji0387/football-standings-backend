@@ -58,7 +58,9 @@ npm test
 ```
 
 ### Deployment
-Coming soon...
+The Football League Standings Backend Server has been deployed to Heroku and is accessible via the following base URL:
+
+[https://football-standings-backend-9c023af5d229.herokuapp.com/](https://football-standings-backend-9c023af5d229.herokuapp.com/)
 
 ### Built With
 - Node.js - The JavaScript runtime environment.
