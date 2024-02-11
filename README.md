@@ -46,10 +46,10 @@ This Node.js backend server is designed to manage football league standings, inc
     ```
 
 ### API Endpoints
-- POST /standings/:code: Create a new standing with the competition code.
-- GET /standings/:code: Retrieve the standing by the competition code.
-- PUT /standings/:code: Update the standing by the competition code.
-- DELETE /standings/:code: Delete the standing by the competition code.
+- **POST** `/standings/:code:` Create a new standing with the competition code.
+- **GET** `/standings/:code:` Retrieve the standing by the competition code.
+- **PUT** `/standings/:code:` Update the standing by the competition code.
+- **DELETE** `/standings/:code:` Delete the standing by the competition code.
 
 ### Running Tests
 Ensure you have a separate test database and set NODE_ENV to test to avoid using the production or development database. Run tests using:
@@ -72,3 +72,4 @@ Coming soon...
 - This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
 
 ### Acknowledgments
+- A special thanks to [football-data.org](https://www.football-data.org/) for providing the comprehensive and up-to-date football data API. Their service has been instrumental in enabling us to fetch real-time competition standings and other football-related data, making our Football League Standings Backend Server much more dynamic and informative.
