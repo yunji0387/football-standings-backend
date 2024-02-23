@@ -12,6 +12,8 @@ mongoose.connect(process.env.MONGO_URI)
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+app.use(cors())
+
 // Import the standing routes
 const standingRoutes = require('./routes/standingRoutes'); // Adjust the path as necessary
 
