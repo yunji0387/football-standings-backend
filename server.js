@@ -17,9 +17,11 @@ app.use(cors());
 
 // Import the standing routes
 const standingRoutes = require('./routes/standingRoutes'); // Adjust the path as necessary
+const mockStandingRoutes = require('./routes/mockStandingRoutes');
 
 // Use the standingRoutes for any requests that are prefixed with '/standings'
 app.use('/standings', standingRoutes);
+app.use('/mock/standings', mockStandingRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).json({
