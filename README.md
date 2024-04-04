@@ -51,6 +51,14 @@ This Node.js backend server is designed to manage football league standings, inc
 - **PUT** `/standings/:code:` Update the standing by the competition code.
 - **DELETE** `/standings/:code:` Delete the standing by the competition code.
 
+### Mock API Endpoints
+To conserve API request limits and avoid using real API calls to `api.football-data.org`, you can utilize mock data. These mock endpoints allow you to simulate operations without actual data modification or external API communication:
+- **POST** `/mock/standings/:code:` Simulates the creation of a new standing using the specified competition code.
+- **GET** `/mock/standings/:code:` Retrieves mock standing data for a given competition code.
+- **PUT** `/mock/standings/:code:` Simulates the update of standings data for the specified competition code.
+- **DELETE** `/mock/standings/:code:` Simulates the deletion of standings data for the specified competition code.
+
+
 ### Running Tests
 Ensure you have a separate test database and set NODE_ENV to test to avoid using the production or development database. Run tests using:
 ```bash
