@@ -38,12 +38,36 @@ This Node.js backend server is designed to manage football league standings, inc
 
 4. Create a .env file in the root directory and add your MongoDB connection string and api.football-data.org API key:
     ```bash
-    MONGO_URI=<your_mongodb_connection_string>FOOTBALL_API_KEY=<your_api_football_data_org_key>
+    MONGO_URI=<your_mongodb_connection_string>
+    FOOTBALL_API_KEY=<your_api_football_data_org_key>
+    PORT=3000
     ```
 5. Start the server:
     ```bash
     npm start
     ```
+
+---
+
+### Docker Setup
+
+You can also run this project using Docker:
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t football-standings-backend .
+   ```
+
+2. **Run the Docker container:**
+   ```bash
+   docker run -p 3000:3000 --env-file .env football-standings-backend
+   ```
+
+Make sure your `.env` file (with `MONGO_URI=[your MongoDB URI]` and `PORT=3000`) is present in the project root.
+
+The server will be accessible at [http://localhost:3000](http://localhost:3000).
+
+---
 
 ### API Endpoints
 - **POST** `/standings/:code:` Create a new standing with the competition code.
