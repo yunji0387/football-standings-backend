@@ -2,8 +2,9 @@
   "name": "football-standings-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "cross-env NODE_ENV=test mocha --timeout 5000 --exit"
   },
   "author": "",
